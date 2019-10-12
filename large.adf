@@ -432,6 +432,44 @@
     </writes-to>
   </socket>
 
+  <socket name="RF_1_o1">
+    <writes-to>
+      <bus>B1</bus>
+      <segment>seg1</segment>
+    </writes-to>
+    <writes-to>
+      <bus>B1_1</bus>
+      <segment>seg1</segment>
+    </writes-to>
+    <writes-to>
+      <bus>B1_2</bus>
+      <segment>seg1</segment>
+    </writes-to>
+    <writes-to>
+      <bus>B1_3</bus>
+      <segment>seg1</segment>
+    </writes-to>
+  </socket>
+
+  <socket name="RF_1_i1">
+    <reads-from>
+      <bus>B1</bus>
+      <segment>seg1</segment>
+    </reads-from>
+    <reads-from>
+      <bus>B1_1</bus>
+      <segment>seg1</segment>
+    </reads-from>
+    <reads-from>
+      <bus>B1_2</bus>
+      <segment>seg1</segment>
+    </reads-from>
+    <reads-from>
+      <bus>B1_3</bus>
+      <segment>seg1</segment>
+    </reads-from>
+  </socket>
+
   <function-unit name="LSU">
     <port name="in1t">
       <connects-to>lsu_i1</connects-to>
@@ -863,6 +901,20 @@
     </port>
     <port name="rd">
       <connects-to>bool_o1</connects-to>
+    </port>
+  </register-file>
+
+  <register-file name="RF_1">
+    <type>normal</type>
+    <size>5</size>
+    <width>32</width>
+    <max-reads>1</max-reads>
+    <max-writes>1</max-writes>
+    <port name="wr">
+      <connects-to>RF_1_o1</connects-to>
+    </port>
+    <port name="rd">
+      <connects-to>RF_1_i1</connects-to>
     </port>
   </register-file>
 
