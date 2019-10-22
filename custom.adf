@@ -559,35 +559,35 @@
   </function-unit>
 
   <function-unit name="REFLECTER">
-    <port name="output1">
+    <port name="P1">
       <connects-to>REFLECTER_i1</connects-to>
-      <width>32</width>
-    </port>
-    <port name="trigger">
-      <connects-to>REFLECTER_o1</connects-to>
       <width>32</width>
       <triggers/>
       <sets-opcode/>
     </port>
+    <port name="P2">
+      <connects-to>REFLECTER_o1</connects-to>
+      <width>32</width>
+    </port>
     <operation>
       <name>reflect8</name>
-      <bind name="1">output1</bind>
-      <bind name="2">trigger</bind>
+      <bind name="1">P1</bind>
+      <bind name="2">P2</bind>
       <pipeline>
         <reads name="1">
           <start-cycle>0</start-cycle>
           <cycles>1</cycles>
         </reads>
         <writes name="2">
-          <start-cycle>0</start-cycle>
+          <start-cycle>1</start-cycle>
           <cycles>1</cycles>
         </writes>
       </pipeline>
     </operation>
     <operation>
       <name>reflect32</name>
-      <bind name="1">output1</bind>
-      <bind name="2">trigger</bind>
+      <bind name="1">P1</bind>
+      <bind name="2">P2</bind>
       <pipeline>
         <reads name="1">
           <start-cycle>0</start-cycle>
